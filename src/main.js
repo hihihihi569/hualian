@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+import axios from 'axios'
+Vue.prototype.axios = axios
 
+Vue.config.productionTip = false
+Vue.filter('setWH', (url, arg) => {
+  return url.replace(/w\.h/, arg)
+})
 new Vue({
   router,
   store,
